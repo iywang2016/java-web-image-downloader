@@ -1,4 +1,5 @@
 import java.sql.*;
+import org.checkerframework.checker.sqlquotes.qual.SqlEvenQuotes;
 
 public class Main {
 
@@ -24,7 +25,7 @@ public class Main {
         }
     }
 
-    private static String getWheelQuery() {
+    private static @SqlEvenQuotes String getWheelQuery() {
         return "SELECT " +
                 "wheels.id as id, " +
                 "wheels.item_number as item_number, " +
@@ -37,7 +38,7 @@ public class Main {
                 "JOIN wheel_finish ON wheels.full_finish = wheel_finish.id WHERE wheels.active = 1";
     }
 
-    private static String getTireQuery() {
+    private static @SqlEvenQuotes String getTireQuery() {
         return "SELECT " +
                 "tires.id as id, " +
                 "tires.item_number as item_number, " +
